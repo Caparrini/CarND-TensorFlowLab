@@ -130,8 +130,8 @@ def normalize_grayscale(image_data):
     # DONE: Implement Min-Max scaling for grayscale image data
     target_min = 0.1
     target_max = 0.9
-    source_min = min(image_data)
-    source_max = max(image_data)
+    source_min = np.amin(image_data)
+    source_max = np.amax(image_data)
     normalized_image = np.zeros_like(image_data, dtype=np.float32)
     for index,x in np.ndenumerate(image_data):
         var = min_max_scaling(x, target_min, target_max, source_min, source_max)
