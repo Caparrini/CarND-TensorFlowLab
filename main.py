@@ -272,13 +272,13 @@ See  tf.zeros() documentation for help.
 features_count = 784
 labels_count = 10
 
-# TODO: Set the features and labels tensors
-# features =
-# labels =
+# DONE: Set the features and labels tensors
+features = tf.placeholder(tf.float32)
+labels = tf.placeholder(tf.float32)
 
-# TODO: Set the weights and biases tensors
-# weights =
-# biases =
+# DONE: Set the weights and biases tensors
+weights = tf.Variable(tf.truncated_normal((features_count,labels_count)))
+biases = tf.Variable(tf.zeros(labels_count))
 
 
 
