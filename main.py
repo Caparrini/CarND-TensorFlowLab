@@ -104,13 +104,40 @@ If you're having trouble solving problem 1, you can view the solution here.
 """
 
 # Problem 1 - Implement Min-Max scaling for grayscale image data
+def min_max_scaling(x, target_min, target_max, source_min, source_max):
+    """
+    Normalize using min-max Scaling
+    :param x: Value to normalize
+    :param target_min: target minimum
+    :param target_max: target maximum
+    :param source_min: source minimum
+    :param source_max: source maximum
+    :return: x normalized
+    """
+    a = float(target_min)
+    b = float(target_max)
+    x_min = float(source_min)
+    x_max = float(source_max)
+    x_prime = a + ((x-x_min) * (b-a))/ (x_max-x_min)
+    return x_prime
+
 def normalize_grayscale(image_data):
     """
     Normalize the image data with Min-Max scaling to a range of [0.1, 0.9]
     :param image_data: The image data to be normalized
     :return: Normalized image data
     """
-    # TODO: Implement Min-Max scaling for grayscale image data
+    # DONE: Implement Min-Max scaling for grayscale image data
+    target_min = 0.1
+    target_max = 0.9
+    source_min = min(image_data)
+    source_max = max(image_data)
+    normalized_image = np.zeros_like(image_data, dtype=np.float32)
+    for index,x in np.ndenumerate(image_data):
+        var = min_max_scaling(x, target_min, target_max, source_min, source_max)
+        normalized_image[index] = var
+    return normalized_image
+
 
 
 ### DON'T MODIFY ANYTHING BELOW ###
