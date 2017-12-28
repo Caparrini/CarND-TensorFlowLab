@@ -381,10 +381,10 @@ Learning Rate: 0.2
 The code will print out a Loss and Accuracy graph, so you can see how well the neural network performed.
 """
 
-# TODO: Find the best parameters for each configuration
-# epochs =
-# batch_size =
-# learning_rate =
+# DONE: Find the best parameters for each configuration
+epochs = 100
+batch_size = 128
+learning_rate = 0.001
 
 
 
